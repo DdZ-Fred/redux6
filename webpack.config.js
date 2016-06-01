@@ -1,7 +1,7 @@
 module.exports = {
   entry: './index.js',
   output: {
-    path: '/',
+    path: './',
     filename: 'bundle.js',
   },
   module: {
@@ -9,13 +9,10 @@ module.exports = {
       {
         test: /\.js?$/,
         exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: [
-            'es2015',
-            'stage-2',
-          ],
-        },
+        loaders: [
+          'react-hot',
+          'babel?presets[]=react,presets[]=es2015,presets[]=stage-2',
+        ],
       },
     ],
   },
